@@ -7,7 +7,7 @@ module.exports = {
             const results = await SequelizeAgendamentos.listar();
             resp.status(201).send(JSON.stringify(results));
         }catch (error) {
-            resp.status(401).send(JSON.stringify(error))        }
+            resp.status(401).send(JSON.stringify({error: error.message}))        }
     },
 
     carregarAgendamento: async(req,resp) => {
@@ -17,7 +17,7 @@ module.exports = {
             await agendamento.buscar();
             resp.status(201).send(JSON.stringify(agendamento))
         } catch(error){
-            resp.status(401).send(JSON.stringify(error))
+            resp.status(401).send(JSON.stringify({error: error.message}))
         }
     },
 
@@ -28,7 +28,7 @@ module.exports = {
             await agendamento.criar()
             resp.status(201).send(JSON.stringify(agendamento))
         }catch(error){
-            resp.status(401).send(JSON.stringify(error))
+            resp.status(401).send(JSON.stringify({error: error.message}))
         }
     }
 }
