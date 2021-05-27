@@ -13,6 +13,9 @@ router.get('/agendamentos/:id',
 
 router.post('/agendamentos',
     servicoAgendamento.criarAgendamento
-)
+);
 
+router.delete('/agendamentos/:id',
+    servicoAgendamento.deletarAgendamento
+);
 module.exports = router
