@@ -41,5 +41,18 @@ module.exports = {
         }catch(error){
             resp.status(404).send(JSON.stringify({error:error.message}))
         }
+    },
+
+    alterarAgendamento : async(req, resp) => {
+        try{
+            const id = req.params.id;
+            const dadosBody = req.body;
+            const dados = Object.assign({},dadosBody,{id:id})
+            const agendamento = new Agendamento(dados);
+            await agendamento.atualizar();
+            resp.status(204).send()
+        }catch(error){
+            resp.status(400).send()
+        }
     }
 }
