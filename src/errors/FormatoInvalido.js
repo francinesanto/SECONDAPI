@@ -8,4 +8,4 @@ class FormatoInvalido extends Error{
 }
 
 
-module.exports = FormatoInvalido
+module.exports = FormatoInvalido;
